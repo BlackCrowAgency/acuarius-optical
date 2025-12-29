@@ -1,10 +1,6 @@
-// src/app/[locale]/(marketing)/metadata.ts
+// src/app/(marketing)/metadata.ts
 import type { Metadata } from "next";
-import esHome from "@/content/locales/es/pages/home.json";
-import enHome from "@/content/locales/en/pages/home.json";
-
-type Locale = "es" | "en";
-type Params = { params: { locale: Locale } };
+import home from "@/content/pages/home.json" assert { type: "json" };
 
 type ContentPage = {
   kind: "page";
@@ -12,27 +8,18 @@ type ContentPage = {
   meta?: { title?: string; description?: string; ogImage?: string };
 };
 
-function getHomeByLocale(locale: Locale): ContentPage {
-  return (locale === "en" ? enHome : esHome) as unknown as ContentPage;
-}
-
-export async function generateMetadata({ params }: Params): Promise<Metadata> {
-  const { locale } = params;
-  const page = getHomeByLocale(locale);
+export async function generateMetadata(): Promise<Metadata> {
+  const page = home as unknown as ContentPage;
   const meta = page.meta ?? {};
 
-  const fallbackTitle =
-    locale === "en"
-      ? "Black Crow — Creative & Tech Agency"
-      : "Black Crow — Agencia Creativa & Tech";
-
+  const fallbackTitle = "Acuarius Optical";
   const fallbackDescription =
-    locale === "en"
-      ? "High-impact UX/UI design, branding, and web development."
-      : "Diseño UX/UI, branding y desarrollo web de alto impacto.";
+    "Catálogo profesional de equipos oftalmológicos y biseladoras.";
 
   const title = meta.title ?? fallbackTitle;
   const description = meta.description ?? fallbackDescription;
+
+  const ogImage = meta.ogImage?.trim() ? meta.ogImage.trim() : undefined;
 
   return {
     title,
@@ -41,20 +28,14 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       title,
       description,
       type: "website",
-      locale,
-      images: meta.ogImage ? [{ url: meta.ogImage }] : undefined,
+      locale: "es_PE",
+      images: ogImage ? [{ url: ogImage }] : undefined,
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: meta.ogImage ? [meta.ogImage] : undefined,
-    },
-    alternates: {
-      languages: {
-        en: "/en",
-        es: "/es",
-      },
+      images: ogImage ? [ogImage] : undefined,
     },
   };
 }
