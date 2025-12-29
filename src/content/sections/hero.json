@@ -3,9 +3,9 @@
   "videoSrc": "/images/hero/ImagenPortada.mp4",
   "poster": "/images/hero/ImagenPortada.jpg",
   "videoProps": { "autoPlay": true, "loop": true, "muted": true, "playsInline": true, "preload": "metadata" },
-  "titleBefore": "Tecnología",
-  "titleHighlight": "Oftalmológica",
-  "titleAfter": "de última generación",
+  "titleBefore": "EXCELENCIA",
+  "titleHighlight": "OFTALMOLÓGICA",
+  "titleAfter": "",
   "description": "Distribuimos tecnología oftalmológica de última generación, creada por los líderes mundiales en visión y diagnóstico ocular.",
   "cta": { "label": "Ver Equipos", "href": "/equipos-oftalmologicos" },
   "features": [
@@ -14,7 +14,7 @@
     { "icon": "icon03", "title": "Entrega confiable", "description": "Coordinación clara y comunicación directa." }
   ],
   "pill": {
-    "label": "Confianza",
+    "label": "Más",
     "value": "100+",
     "caption": "Clientes satisfechos",
     "avatars": [
