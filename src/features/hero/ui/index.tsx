@@ -7,6 +7,7 @@ import type { HeroUiProps } from "@/features/hero/content/hero.mapper";
 import { Section, Container, Typography, Button } from "@/ui";
 import { PiCaretDoubleDownBold } from "react-icons/pi";
 import "@/styles/hero.inverted.css";
+import { cn } from "@/utils/cn";
 
 // --- ANIMATION CONFIG ---
 
@@ -52,7 +53,7 @@ const pillItemVariants: Variants = {
   },
 };
 
-// --- helpers (no UI changes) ---
+// --- HELPERS ---
 type LegacyMedia =
   | { kind: "video"; src: string; poster?: string }
   | { kind: string };
@@ -70,7 +71,6 @@ type MaybeLegacyProps = HeroUiProps & {
 };
 
 function resolveVideo(props: MaybeLegacyProps) {
-  // Prefer new format
   if (typeof props.videoSrc === "string" && props.videoSrc.trim()) {
     return {
       src: props.videoSrc,
@@ -78,8 +78,6 @@ function resolveVideo(props: MaybeLegacyProps) {
       videoProps: props.videoProps,
     };
   }
-
-  // Fallback legacy format
   const media = props.media;
   if (media && typeof media === "object" && "kind" in media && media.kind === "video") {
     const m = media as Extract<LegacyMedia, { kind: "video" }>;
@@ -89,19 +87,14 @@ function resolveVideo(props: MaybeLegacyProps) {
       videoProps: props.videoProps,
     };
   }
-
-  // Last resort (avoid empty string src warning)
   return { src: null as string | null, poster: undefined, videoProps: props.videoProps };
 }
 
 // --- MAIN COMPONENT ---
 
 export default function Hero(props: HeroUiProps) {
-  // NOTE: We cast to allow reading legacy fields without changing UI props shape.
   const p = props as MaybeLegacyProps;
-
   const { titleBefore, titleHighlight, titleAfter, description, cta, features, pill } = p;
-
   const media = resolveVideo(p);
 
   return (
@@ -113,7 +106,6 @@ export default function Hero(props: HeroUiProps) {
               className="hero-media object-cover w-full h-full"
               src={media.src}
               poster={media.poster}
-              // Mantengo tu comportamiento por defecto, pero si viene desde contenido lo respeta
               autoPlay={media.videoProps?.autoPlay ?? true}
               muted={media.videoProps?.muted ?? true}
               loop={media.videoProps?.loop ?? true}
@@ -137,23 +129,28 @@ export default function Hero(props: HeroUiProps) {
             initial="hidden"
             animate="visible"
             className={[
-              "absolute inset-0 grid grid-cols-10 gap-6 px-6 md:px-10 lg:px-14",
+              "absolute inset-0 grid grid-cols-10 gap-6",
+              "px-5 sm:px-8 md:px-10 lg:px-14",
               "items-start",
-              "pt-[12vh] md:pt-[15vh] lg:pt-[18vh] xl:pt-[20vh]",
+              // Ajuste de padding top para balance visual en mobile
+              "pt-[20vh] md:pt-[15vh] lg:pt-[18vh] xl:pt-[20vh]",
               "pb-16",
             ].join(" ")}
           >
-            {/* Izquierda */}
+            {/* Izquierda: Contenido Principal */}
             <div className="col-span-12 md:col-span-7 lg:col-span-6 self-center">
               <motion.div variants={fadeInUp}>
                 <Typography.Heading
                   as="h1"
-                  className={[
-                    "font-heading uppercase",
-                    "text-[length:var(--text-h1)] leading-[var(--leading-h1)] tracking-[var(--tracking-h1)]",
+                  className={cn(
+                    "font-heading", // Quitamos 'uppercase' para texto normal
+                    // Tipografía escalada: Grande en mobile pero controlada
+                    "text-4xl sm:text-5xl md:text-6xl lg:text-[length:var(--text-h1)]",
+                    "leading-[1.1] tracking-tight",
                     "text-[var(--text-on-colored)] text-balance drop-shadow-sm",
-                    "max-w-[22ch]",
-                  ].join(" ")}
+                    "max-w-[20ch]",
+                    "break-words hyphens-auto"
+                  )}
                 >
                   {titleBefore}
                   <br />
@@ -170,25 +167,43 @@ export default function Hero(props: HeroUiProps) {
               <motion.div variants={fadeInUp}>
                 <Typography.Text
                   as="p"
-                  className={[
-                    "mt-6 max-w-[30ch]",
+                  className={cn(
+                    "mt-5 max-w-[35ch] md:max-w-[30ch]",
                     "text-[var(--text-on-colored)]/90",
-                    "text-[length:var(--text-body-lg)] leading-[var(--leading-lead)]",
-                  ].join(" ")}
+                    "text-[1rem] sm:text-lg md:text-[length:var(--text-body-lg)]",
+                    "leading-relaxed"
+                  )}
                 >
                   {description}
                 </Typography.Text>
               </motion.div>
 
-              <motion.div variants={fadeInUp} className="mt-8">
-                <Button asChild variant="cta" size="lg" withDot aria-label={cta.label}>
+              {/* BOTÓN CTA: Tamaño controlado, no full width */}
+              <motion.div 
+                variants={fadeInUp} 
+                className="mt-8 w-fit" // w-fit asegura que solo ocupe lo necesario
+              >
+                <Button 
+                  asChild 
+                  variant="cta" 
+                  withDot 
+                  aria-label={cta.label}
+                  className={cn(
+                    // Diseño Mobile: Compacto, NO full width, texto normal
+                    "h-12 px-6 text-sm font-semibold tracking-wide",
+                    // Desktop: Un poco más grande
+                    "md:h-14 md:px-8 md:text-base",
+                    // Sombra sutil para separar del fondo
+                    "shadow-lg shadow-black/10"
+                  )}
+                >
                   <a href={cta.href}>{cta.label}</a>
                 </Button>
               </motion.div>
             </div>
 
-            {/* Derecha: features */}
-            <div className="hero-right col-span-12 md:col-span-5 lg:col-span-4 self-center md:justify-self-end">
+            {/* Derecha: features (Ocultas en mobile) */}
+            <div className="hero-right col-span-12 md:col-span-5 lg:col-span-4 self-center md:justify-self-end hidden md:block">
               <ul className="hero-features grid gap-8 md:-mt-2 lg:-mt-4 xl:-mt-6" role="list">
                 {features.map((f, i) => (
                   <motion.li
@@ -238,16 +253,17 @@ export default function Hero(props: HeroUiProps) {
           </motion.div>
         </div>
 
-        {/* --- PILL CON ANIMACIÓN ESCALONADA --- */}
+        {/* --- PILL ANIMADO (Oculto en Mobile) --- */}
         <motion.aside
           variants={pillContainerVariants}
           initial="hidden"
           animate="visible"
-          className={[
+          className={cn(
             "hero-pill-wrap",
             "pointer-events-auto absolute right-4 bottom-4 md:right-6 md:bottom-6",
             "translate-x-[15px] translate-y-[20px] z-[2]",
-          ].join(" ")}
+            "hidden md:block" // Oculto en mobile para limpieza visual
+          )}
           aria-label={pill.caption}
         >
           <div className="hero-pill flex items-center gap-1 px-4 py-3">
@@ -292,8 +308,4 @@ export default function Hero(props: HeroUiProps) {
       </Container>
     </Section>
   );
-}
-
-function cn(...classes: string[]) {
-  return classes.filter(Boolean).join(" ");
 }

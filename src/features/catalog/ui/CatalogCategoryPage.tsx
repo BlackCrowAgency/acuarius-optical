@@ -110,7 +110,7 @@ export async function CatalogCategoryPage({ categoryKey, searchParams }: Props) 
           <div className="flex flex-col gap-5 pt-6 lg:hidden">
             
             {/* 1. Main Image with Floating Controls */}
-            <div className="relative aspect-[4/3.5] w-full overflow-hidden rounded-[2.5rem] shadow-sm bg-neutral-100">
+            <div className="relative aspect-[4/3.5] w-full overflow-hidden rounded-[1.0rem] shadow-sm bg-neutral-100">
               <Image
                 src={ui.heroImage}
                 alt={ui.title}
@@ -151,7 +151,7 @@ export async function CatalogCategoryPage({ categoryKey, searchParams }: Props) 
               <Link
                 href={ui.ctaPrimary?.href || "#"}
                 className={cn(
-                  "group relative flex items-center justify-between overflow-hidden rounded-[2rem] p-6 text-white transition-transform active:scale-[0.98] shadow-md",
+                  "group relative flex items-center justify-between overflow-hidden rounded-[1rem] p-6 text-white transition-transform active:scale-[0.98] shadow-md",
                   styles.mobilePrimary
                 )}
               >
@@ -166,7 +166,7 @@ export async function CatalogCategoryPage({ categoryKey, searchParams }: Props) 
               <Link
                 href="#catalog-listing"
                 className={cn(
-                  "group relative flex items-center justify-between overflow-hidden rounded-[2rem] p-6 text-[#1A1A1A] transition-transform active:scale-[0.98]",
+                  "group relative flex items-center justify-between overflow-hidden rounded-[1rem] p-6 text-[#1A1A1A] transition-transform active:scale-[0.98]",
                   styles.mobileSecondary
                 )}
               >
@@ -254,7 +254,7 @@ export async function CatalogCategoryPage({ categoryKey, searchParams }: Props) 
 
       {/* ================= PRODUCT LISTING ================= */}
       <Section id="catalog-listing" container="full">
-        <Container max="2xl" gutter="lg" className="py-14 md:py-16">
+        <Container max="2xl" gutter="lg" className="py-0 md:py-4">
           <Typography.Heading as="h2" level="h2" weight="semibold">
             <span className="block text-neutral-900">Explora las mejores</span>
             <span className="block text-[var(--brand-orange-500)]">
