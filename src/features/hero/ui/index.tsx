@@ -10,7 +10,6 @@ import "@/styles/hero.inverted.css";
 
 // --- ANIMATION CONFIG ---
 
-// Animación principal del contenido Hero
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
@@ -28,24 +27,22 @@ const staggerContainer: Variants = {
   },
 };
 
-// --- NUEVA ANIMACIÓN ESCALONADA PARA EL PILL ---
+// --- PILL ANIMATION ---
 
-// 1. El contenedor orquesta la secuencia
 const pillContainerVariants: Variants = {
   hidden: { opacity: 0, x: 20 },
   visible: {
     opacity: 1,
     x: 0,
     transition: {
-      delay: 1.1, // Espera un poco a que cargue el hero principal
+      delay: 1.1,
       duration: 0.5,
-      when: "beforeChildren", // Asegura que el contenedor sea visible antes de iniciar hijos
-      staggerChildren: 0.1,   // Retraso entre cada avatar/elemento
+      when: "beforeChildren",
+      staggerChildren: 0.1,
     },
   },
 };
 
-// 2. Animación individual de cada elemento (pop-in suave)
 const pillItemVariants: Variants = {
   hidden: { opacity: 0, scale: 0.8 },
   visible: {
@@ -55,25 +52,76 @@ const pillItemVariants: Variants = {
   },
 };
 
+// --- helpers (no UI changes) ---
+type LegacyMedia =
+  | { kind: "video"; src: string; poster?: string }
+  | { kind: string };
+
+type MaybeLegacyProps = HeroUiProps & {
+  media?: LegacyMedia;
+  videoProps?: {
+    autoPlay?: boolean;
+    loop?: boolean;
+    muted?: boolean;
+    playsInline?: boolean;
+    preload?: "none" | "metadata" | "auto";
+  };
+  poster?: string;
+};
+
+function resolveVideo(props: MaybeLegacyProps) {
+  // Prefer new format
+  if (typeof props.videoSrc === "string" && props.videoSrc.trim()) {
+    return {
+      src: props.videoSrc,
+      poster: props.poster,
+      videoProps: props.videoProps,
+    };
+  }
+
+  // Fallback legacy format
+  const media = props.media;
+  if (media && typeof media === "object" && "kind" in media && media.kind === "video") {
+    const m = media as Extract<LegacyMedia, { kind: "video" }>;
+    return {
+      src: m.src,
+      poster: m.poster,
+      videoProps: props.videoProps,
+    };
+  }
+
+  // Last resort (avoid empty string src warning)
+  return { src: null as string | null, poster: undefined, videoProps: props.videoProps };
+}
+
 // --- MAIN COMPONENT ---
 
 export default function Hero(props: HeroUiProps) {
-  const { videoSrc, titleBefore, titleHighlight, titleAfter, description, cta, features, pill } =
-    props;
+  // NOTE: We cast to allow reading legacy fields without changing UI props shape.
+  const p = props as MaybeLegacyProps;
+
+  const { titleBefore, titleHighlight, titleAfter, description, cta, features, pill } = p;
+
+  const media = resolveVideo(p);
 
   return (
     <Section id="hero" container="full" className="hero-section overflow-hidden">
       <Container max="fluid" gutter="none" className="hero-offset h-full relative">
         <div className="chonky-image relative overflow-hidden z-[1]">
-          <video
-            className="hero-media object-cover w-full h-full"
-            src={videoSrc}
-            autoPlay
-            muted
-            loop
-            playsInline
-            aria-label="Video hero"
-          />
+          {media.src ? (
+            <video
+              className="hero-media object-cover w-full h-full"
+              src={media.src}
+              poster={media.poster}
+              // Mantengo tu comportamiento por defecto, pero si viene desde contenido lo respeta
+              autoPlay={media.videoProps?.autoPlay ?? true}
+              muted={media.videoProps?.muted ?? true}
+              loop={media.videoProps?.loop ?? true}
+              playsInline={media.videoProps?.playsInline ?? true}
+              preload={media.videoProps?.preload ?? "metadata"}
+              aria-label="Video hero"
+            />
+          ) : null}
 
           <div
             aria-hidden
@@ -192,14 +240,12 @@ export default function Hero(props: HeroUiProps) {
 
         {/* --- PILL CON ANIMACIÓN ESCALONADA --- */}
         <motion.aside
-          // Usamos variantes en lugar de props directas para orquestar hijos
           variants={pillContainerVariants}
           initial="hidden"
           animate="visible"
           className={[
             "hero-pill-wrap",
             "pointer-events-auto absolute right-4 bottom-4 md:right-6 md:bottom-6",
-            // Mantenemos las clases de posición y transformación exactas de tu CSS
             "translate-x-[15px] translate-y-[20px] z-[2]",
           ].join(" ")}
           aria-label={pill.caption}
@@ -207,7 +253,6 @@ export default function Hero(props: HeroUiProps) {
           <div className="hero-pill flex items-center gap-1 px-4 py-3">
             <div className="relative flex items-center">
               {pill.avatars.slice(0, 3).map((src, i) => (
-                // Convertimos el wrapper div en motion.div manteniendo sus clases exactas para el stacking
                 <motion.div
                   key={i}
                   variants={pillItemVariants}
@@ -228,21 +273,13 @@ export default function Hero(props: HeroUiProps) {
               ))}
             </div>
 
-            {/* Círculo central animado */}
-            <motion.div
-              variants={pillItemVariants}
-              className="relative -ml-6 z-[10]"
-            >
+            <motion.div variants={pillItemVariants} className="relative -ml-6 z-[10]">
               <div className="grid place-items-center size-[70px] rounded-full bg-[var(--brand-blue-500)] text-[var(--text-on-colored)] text-[length:var(--text-body-sm)] font-medium ring-2 ring-[var(--brand-surface)]">
                 {pill.label}
               </div>
             </motion.div>
 
-            {/* Texto animado */}
-            <motion.div
-              variants={pillItemVariants}
-              className="flex flex-col pl-2"
-            >
+            <motion.div variants={pillItemVariants} className="flex flex-col pl-2">
               <strong className="text-[var(--brand-text)] font-semibold leading-none text-[clamp(1.5rem,1.05rem+1.1vw,2rem)]">
                 {pill.value}
               </strong>
@@ -257,8 +294,6 @@ export default function Hero(props: HeroUiProps) {
   );
 }
 
-// Función auxiliar simple para unir clases condicionales si no tienes 'clsx' o 'cn' a mano,
-// aunque veo que usas un join(" ") manual en otras partes, esto es más limpio para los índices.
 function cn(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }

@@ -1,77 +1,50 @@
-'use client';
+// src/hooks/useOnClickOutside.ts
+"use client";
 
-import { RefObject, useEffect } from 'react';
+import { useEffect } from "react";
+import type { RefObject } from "react";
 
 type MaybeRef = RefObject<HTMLElement | null> | HTMLElement | null | undefined;
 
 type Options = {
-  /** Habilita/deshabilita el hook (default: true) */
   enabled?: boolean;
-  /** Eventos a escuchar (default: ['mousedown', 'touchstart']) */
-  events?: Array<'mousedown' | 'mouseup' | 'click' | 'touchstart' | 'touchend'>;
-  /** Elementos que se consideran “dentro” aunque estén fuera del ref principal */
-  excludeRefs?: MaybeRef[];
 };
 
-/** Type guard: ¿es un RefObject<HTMLElement | null>? */
-function isRef(el: MaybeRef): el is RefObject<HTMLElement | null> {
-  return !!el && typeof el === 'object' && 'current' in el;
-}
-
-/** Normaliza a HTMLElement | null */
-function toNode(el: MaybeRef): HTMLElement | null {
-  if (!el) return null;
-  return isRef(el) ? el.current : el;
-}
-
-/**
- * Ejecuta `handler` cuando se hace click/touch fuera del elemento `ref`.
- */
 export function useOnClickOutside(
-  ref: RefObject<HTMLElement | null>,
+  refs: MaybeRef | MaybeRef[],
   handler: (event: MouseEvent | TouchEvent) => void,
   options: Options = {}
-): void {
-  const {
-    enabled = true,
-    events = ['mousedown', 'touchstart'],
-    excludeRefs = [],
-  } = options;
+) {
+  const { enabled = true } = options;
 
   useEffect(() => {
     if (!enabled) return;
-    if (typeof window === 'undefined' || typeof document === 'undefined') return;
 
-    const root = ref.current;
+    const list = Array.isArray(refs) ? refs : [refs];
 
-    const isInside = (target: EventTarget | null) => {
-      if (!target || !(target instanceof Node)) return false;
+    function isInside(target: EventTarget | null) {
+      for (const ref of list) {
+        const el =
+          ref && typeof ref === "object" && "current" in ref
+            ? (ref.current as HTMLElement | null)
+            : (ref as HTMLElement | null);
 
-      // 1) Dentro del elemento principal
-      if (root && root.contains(target)) return true;
-
-      // 2) Dentro de alguna exclusión
-      for (const ex of excludeRefs) {
-        const node = toNode(ex);
-        if (node && node.contains(target)) return true;
+        if (el && target instanceof Node && el.contains(target)) return true;
       }
-
       return false;
-    };
+    }
 
-    const listener = (event: MouseEvent | TouchEvent) => {
+    function onPointerDown(event: MouseEvent | TouchEvent) {
       if (isInside(event.target)) return;
       handler(event);
-    };
+    }
 
-    events.forEach((evt) =>
-      document.addEventListener(evt, listener as EventListener, { passive: true })
-    );
+    document.addEventListener("mousedown", onPointerDown);
+    document.addEventListener("touchstart", onPointerDown, { passive: true });
 
     return () => {
-      events.forEach((evt) =>
-        document.removeEventListener(evt, listener as EventListener)
-      );
+      document.removeEventListener("mousedown", onPointerDown);
+      document.removeEventListener("touchstart", onPointerDown);
     };
-  }, [enabled, events, excludeRefs, handler, ref]);
+  }, [refs, handler, enabled]);
 }
