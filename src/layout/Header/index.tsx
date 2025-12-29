@@ -28,7 +28,7 @@ const SERVICIOS_KEY = "servicios";
 
 const EQUIPOS_BRANDS = [
   { src: "/logos/marcas/Unicos.svg", alt: "Unicos" },
-  { src: "/logos/marcas/Visonix.svg", alt: "Visonix" },
+  { src: "/logos/marcas/Visionix.svg", alt: "Visionix" },
   { src: "/logos/marcas/Takagi.svg", alt: "Takagi" },
   { src: "/logos/marcas/Huvitz.svg", alt: "Huvitz" },
   { src: "/logos/marcas/Tomey.svg", alt: "Tomey" },
