@@ -208,3 +208,21 @@
       linear-gradient(320deg, var(--band-from, var(--brand-blue-900)), var(--band-to, var(--brand-blue-700)));
   }
 }
+
+/* ================= */
+/* ================= */
+/* LENIS SUPPORT     */
+/* ================= */
+@layer base {
+  html.lenis {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+}

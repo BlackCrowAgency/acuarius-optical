@@ -1,4 +1,3 @@
-// src/app/(marketing)/layout.tsx
 import type { ReactNode } from "react";
 import Header from "@/layout/Header";
 import BottomHeader from "@/layout/BottomHeader";
