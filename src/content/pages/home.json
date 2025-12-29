@@ -1,0 +1,95 @@
+{
+  "header": {
+    "logo": {
+      "src": "/logos/Acuarius Optical.svg",
+      "alt": "Acuarius Optical"
+    },
+    "nav": [
+      {
+        "label": "Equipos",
+        "chevron": "down",
+        "submenu": [
+          {
+            "label": "Equipos oftalmológicos",
+            "href": "/equipos-oftalmologicos",
+            "image": {
+              "src": "/images/Equipos_Oftalmologicos.png",
+              "alt": "Equipos oftalmológicos"
+            }
+          },
+          {
+            "label": "Biceladoras",
+            "href": "/biseladoras",
+            "image": {
+              "src": "/images/Biceladoras.png",
+              "alt": "Biceladoras"
+            }
+          }
+        ]
+      },
+      {
+        "label": "Servicios",
+        "chevron": "down",
+        "submenu": [
+          { "label": "Asesoría personalizada", "href": "/#asesoria-personalizada" },
+          { "label": "Soporte técnico profesional", "href": "/#soporte-tecnico-profesional" }
+        ]
+      },
+      { "label": "Monturas", "href": "/#monturas" },
+      { "label": "Nosotros", "href": "/#nosotros" },
+      { "label": "FAQ´S", "href": "/#faq" }
+    ],
+    "cta": {
+      "label": "Contacto",
+      "href": "/#footer",
+      "variant": "solid"
+    },
+    "behavior": {
+      "sticky": false,
+      "container": true
+    }
+  },
+
+  "sections": [
+    { "kind": "hero" },
+    { "kind": "trayectoria" },
+    { "kind": "calidad" },
+    { "kind": "servicios" },
+    { "kind": "marcas" },
+    { "kind": "previsualizar" },
+    { "kind": "clientes" },
+    { "kind": "faq" },
+
+    {
+      "kind": "footer",
+      "logo": {
+        "src": "/logos/Logovol1.svg",
+        "alt": "Acuarius Optical"
+      },
+      "title": "Let’s Connect",
+      "description": "Cuéntanos sobre tu negocio. Empecemos esta conversación. Completa el formulario o envíanos un correo electrónico.",
+      "email": "ventas@acuarius-optical.com",
+      "address": ["Av. República De Panamá 3518", "San Isidro Lima–Perú"],
+      "socials": [
+        { "href": "https://www.instagram.com/", "label": "Instagram", "icon": "/logos/socials/instagram.svg" },
+        { "href": "https://www.facebook.com/", "label": "Facebook", "icon": "/logos/socials/facebook.svg" },
+        { "href": "https://www.linkedin.com/", "label": "LinkedIn", "icon": "/logos/socials/linkedin.svg" }
+      ],
+      "connectLabel": "(Connect)",
+      "visitLabel": "(Visit Us)",
+      "copyrightLabel": "Copyright © 2025 Acuarius Optical. All rights reserved.",
+      "backToTop": { "label": "Back to top", "href": "#top" },
+      "form": {
+        "nameLabel": "Nombre",
+        "namePlaceholder": "Tu nombre",
+        "emailLabel": "Correo Electrónico",
+        "emailPlaceholder": "abc@email.com",
+        "companyLabel": "Institución / compañía",
+        "companyPlaceholder": "ABC company",
+        "messageLabel": "Mensaje",
+        "messagePlaceholder": "Escribe tu mensaje",
+        "submitLabel": "Enviar"
+      }
+    }
+  ]
+}

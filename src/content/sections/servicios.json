@@ -1,0 +1,20 @@
+{
+  "titleLines": ["FEATURED WORK", ""],
+  "aside": "OBTENGA INFORMACIÓN PROCESABLE EN MINUTOS, SIN AGUJAS, SIN LABORATORIOS, SIN DEMORAS",
+  "cards": [
+    {
+      "key": "capacitacion",
+      "image": "/images/servicios/capacitacion.png",
+      "alt": "Paciente en procedimiento oftalmológico",
+      "label": "Tactile INSTALLATION • Braille Signages",
+      "title": "IBM RPWD"
+    },
+    {
+      "key": "soporte",
+      "image": "/images/servicios/soporte.png",
+      "alt": "Profesional usando equipo de diagnóstico ocular",
+      "label": "Tactile INSTALLATION • Braille Signages",
+      "title": "IBM RPWD"
+    }
+  ]
+}

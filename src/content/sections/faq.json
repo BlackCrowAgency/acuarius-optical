@@ -1,0 +1,32 @@
+{
+  "kind": "faq",
+  "id": "faq",
+  "title": "FAQ’s",
+  "subtitle": "Preguntas frecuentes sobre Acuarius Optical",
+  "items": [
+    {
+      "id": "porque-acuarius-1",
+      "question": "¿Por qué Acuarius Optical y no otra empresa?",
+      "answer": "Porque combinamos más de 15 años de experiencia, soporte especializado y equipos oftalmológicos de marcas líderes para que tu inversión sea segura y rentable."
+    },
+    {
+      "id": "porque-acuarius-2",
+      "question": "¿Trabajan con marcas reconocidas a nivel internacional?",
+      "answer": "Sí. Somos representantes oficiales de fabricantes líderes y trabajamos solo con equipos que cumplen estándares internacionales de calidad y certificaciones vigentes."
+    },
+    {
+      "id": "porque-acuarius-3",
+      "question": "¿Brindan capacitación después de la compra?",
+      "answer": "Incluimos capacitación a tu equipo clínico y acompañamiento en la puesta en marcha, para que puedas aprovechar todo el potencial de los equipos desde el primer día."
+    },
+    {
+      "id": "porque-acuarius-4",
+      "question": "¿Qué tipo de soporte técnico ofrecen?",
+      "answer": "Contamos con soporte remoto y presencial, mantenimiento preventivo y correctivo, así como disponibilidad de repuestos originales para garantizar la continuidad de tu servicio."
+    }
+  ],
+  "cta": {
+    "label": "¿Todavía tienes preguntas? Envíanos un correo electrónico a",
+    "email": "ventas@acuarius-optical.com"
+  }
+}

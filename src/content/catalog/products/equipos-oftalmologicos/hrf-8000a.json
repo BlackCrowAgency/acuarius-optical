@@ -1,0 +1,20 @@
+{
+  "slug": "hrf-8000a",
+  "name": "HRF-8000A",
+  "brand": "Huvitz",
+  "shortDescription": "Tomógrafo de coherencia óptica",
+  "description": "El HRF-8000A integra refracción automática y queratometría avanzada para diagnósticos confiables en clínicas oftalmológicas.",
+  "coverImage": "/catalog/equipos-oftalmologicos/hrf-8000a/cover.png",
+  "heroImage": "/catalog/equipos-oftalmologicos/hrf-8000a/hero.png",
+  "gallery": [
+    "/catalog/equipos-oftalmologicos/hrf-8000a/g-01.webp",
+    "/catalog/equipos-oftalmologicos/hrf-8000a/g-02.webp",
+    "/catalog/equipos-oftalmologicos/hrf-8000a/g-03.webp"
+  ],
+  "specs": [
+    { "label": "Tipo", "value": "Auto refractómetro / queratómetro" },
+    { "label": "Uso", "value": "Clínico" },
+    { "label": "Pantalla", "value": "LCD color" },
+    { "label": "Precisión diagnóstica", "value": "Alta" }
+  ]
+}

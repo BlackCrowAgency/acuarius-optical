@@ -1,0 +1,25 @@
+/* Pequeñas utilidades para el efecto “expanding cards” de Trayectoria */
+.exp-gallery {
+  display: flex;
+  gap: 1.25rem;                /* ~gap-5 */
+  height: 22rem;               /* base */
+}
+@media (min-width: 768px) {
+  .exp-gallery { height: 24rem; }
+}
+@media (min-width: 1024px) {
+  .exp-gallery { height: 26rem; }
+}
+@media (min-width: 1280px) {
+  .exp-gallery { height: 28rem; }
+}
+
+.exp-card {
+  position: relative;
+  flex: 1 1 0%;
+  transition:
+    flex-grow .35s cubic-bezier(.22,1,.36,1),
+    transform .35s cubic-bezier(.22,1,.36,1);
+  will-change: flex-grow, transform;
+}
+.exp-card:hover { flex-grow: 2; }

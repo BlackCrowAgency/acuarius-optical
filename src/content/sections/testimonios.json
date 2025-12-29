@@ -1,0 +1,31 @@
+{
+  "kind": "testimonios",
+  "title": "Detrás de cada precisión hay una historia.",
+  "subtitle": "Clínicas y especialistas en toda la región confían en nuestra tecnología para brindar diagnósticos más exactos y resultados que mejoran vidas.",
+  "items": [
+    {
+      "title": "Equipos confiables",
+      "rating": 5,
+      "text": "Equipos muy confiables; la imagen es nítida y el flujo de trabajo mejora desde el primer día.",
+      "authorName": "Quispe Mamani, Carlos",
+      "authorRole": "Médico Cirujano @EsSalud",
+      "clinicLogo": "oftalmosur"
+    },
+    {
+      "title": "Resultados consistentes",
+      "rating": 5,
+      "text": "La calibración y el soporte post-venta marcan la diferencia. Es la mejor inversión que hemos hecho.",
+      "authorName": "Quispe Huanaco, Jose",
+      "authorRole": "Médico Cirujano @EsSalud",
+      "clinicLogo": "auna"
+    },
+    {
+      "title": "Resultados consistentes",
+      "rating": 5,
+      "text": "Rendimiento consistente y resultados repetibles. El equipo clínico está encantado con la experiencia.",
+      "authorName": "Quispe Smith, Jhon",
+      "authorRole": "Médico Cirujano @EsSalud",
+      "clinicLogo": "aviva"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "slug": "s390l",
+  "name": "S-390L",
+  "brand": "MediWorks",
+  "shortDescription": "Lámpara de hendidura.",
+  "description": "La S-390L ofrece iluminación uniforme y óptica precisa para exámenes detallados del segmento anterior del ojo.",
+  "coverImage": "/catalog/equipos-oftalmologicos/s390l/cover.png",
+  "heroImage": "/catalog/equipos-oftalmologicos/s390l/hero.png",
+  "gallery": [
+    "/catalog/equipos-oftalmologicos/s390l/g-01.webp",
+    "/catalog/equipos-oftalmologicos/s390l/g-02.webp",
+    "/catalog/equipos-oftalmologicos/s390l/g-03.webp"
+  ],
+  "specs": [
+    { "label": "Tipo", "value": "Lámpara de hendidura" },
+    { "label": "Iluminación", "value": "LED" },
+    { "label": "Aplicación", "value": "Diagnóstico ocular" },
+    { "label": "Construcción", "value": "Clínica" }
+  ]
+}

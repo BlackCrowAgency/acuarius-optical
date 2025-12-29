@@ -1,0 +1,21 @@
+{
+  "title": "Más que distribuidores, socios tecnológicos",
+  "tabs": [
+    {
+      "key": "oftalmologicos",
+      "label": "Equipos Oftalmológicos",
+      "categoryKey": "equipos-oftalmologicos",
+      "limit": 3
+    },
+    {
+      "key": "biceladoras",
+      "label": "Biseladoras",
+      "categoryKey": "biseladoras",
+      "limit": 3
+    }
+  ],
+  "cta": {
+    "label": "Ver catálogo",
+    "href": "/equipos-oftalmologicos"
+  }
+}

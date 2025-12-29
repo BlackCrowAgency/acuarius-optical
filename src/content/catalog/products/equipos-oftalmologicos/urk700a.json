@@ -1,0 +1,20 @@
+{
+  "slug": "urk700a",
+  "name": "URK-700A",
+  "brand": "Unicos",
+  "shortDescription": "Autorefractómetro.",
+  "description": "El URK-700A está diseñado para mediciones rápidas y exactas, optimizando el flujo de atención en consultorios oftalmológicos.",
+  "coverImage": "/catalog/equipos-oftalmologicos/urk700a/cover.png",
+  "heroImage": "/catalog/equipos-oftalmologicos/urk700a/hero.png",
+  "gallery": [
+    "/catalog/equipos-oftalmologicos/urk700a/g-01.webp",
+    "/catalog/equipos-oftalmologicos/urk700a/g-02.webp",
+    "/catalog/equipos-oftalmologicos/urk700a/g-03.webp"
+  ],
+  "specs": [
+    { "label": "Tipo", "value": "Refractómetro automático" },
+    { "label": "Velocidad de medición", "value": "Rápida" },
+    { "label": "Uso", "value": "Clínico" },
+    { "label": "Confiabilidad", "value": "Alta" }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "kind": "hero",
+  "videoSrc": "/images/hero/ImagenPortada.mp4",
+  "titleBefore": "Vision",
+  "titleHighlight": "hacia futuro",
+  "description": "Tecnología clínica que agiliza tus exámenes, mejora el flujo de trabajo.",
+  "cta": {
+    "label": "Conversemos",
+    "href": "#contacto"
+  },
+  "features": [
+    {
+      "icon": "icon01",
+      "title": "Análisis en tiempo real",
+      "description": "Resultados rápidos y accionables sin esperas."
+    },
+    {
+      "icon": "icon02",
+      "title": "Recomendaciones personalizadas",
+      "description": "Ajustes según el perfil y necesidades visuales."
+    },
+    {
+      "icon": "icon03",
+      "title": "Integración sencilla",
+      "description": "Compatibles con tu flujo y software clínico."
+    }
+    ],
+  "pill": {
+    "label": "Etc.",
+    "value": "100+",
+    "caption": "Clientes satisfechos",
+    "avatars": [
+      "/images/avatares/personauno.png",
+      "/images/avatares/personados.png",
+      "/images/avatares/personatres.png"
+    ]
+  }
+}

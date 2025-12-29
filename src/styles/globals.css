@@ -1,0 +1,210 @@
+/* src/app/globals.css */
+@import "tailwindcss";
+
+/* ========================== */
+/* THEME TOKENS (Tailwind v4) */
+/* ========================== */
+@theme {
+  /* Familias de fuente (se rellenan desde layout con next/font) */
+  --font-sans: var(--font-body, var(--font-fallback-sans));
+  --font-heading: var(--font-title, var(--font-fallback-heading));
+
+  /* Escala tipográfica fluida */
+  --text-h1: clamp(2.5rem, 1.25rem + 5vw, 5.0rem);
+  --leading-h1: 1.1;
+  --tracking-h1: -0.01em;
+
+  --text-h2: clamp(2rem, 0.9rem + 3.2vw, 4.2rem);
+  --leading-h2: 1.15;
+  --tracking-h2: -0.01em;
+
+  --text-h3: clamp(1.5rem, 0.8rem + 2vw, 2.5rem);
+  --leading-h3: 1.2;
+
+  --text-h4: clamp(1.25rem, 0.6rem + 1.4vw, 2rem);
+  --leading-h4: 1.25;
+
+  --text-h5: clamp(1.125rem, 0.55rem + 0.9vw, 1.5rem);
+  --leading-h5: 1.3;
+
+  --text-h6: clamp(1rem, 0.5rem + 0.6vw, 1.25rem);
+  --leading-h6: 1.35;
+
+  /* Body / Lead / Caption / Eyebrow */
+  --text-lead: clamp(1.125rem, 1rem + 0.5vw, 1.25rem);
+  --leading-lead: 1.6;
+
+  --text-body-sm: 0.94rem;
+  --leading-body-sm: 1.55;
+
+  --text-body: 0.88rem;
+  --leading-body: 1.6;
+
+  --text-body-lg: 1.12rem;
+  --leading-body-lg: 1.65;
+
+  --text-caption: 0.8125rem;
+  --leading-caption: 1.4;
+
+  --text-eyebrow: 0.70rem;
+  --tracking-eyebrow: 0.12em;
+
+  /* Semánticos (estado) */
+  --status-danger: #dc2626;
+  --status-success: #16a34a;
+  --status-warning: #d97706;
+
+  /* Habilita utilidades usadas en el header */
+  --spacing-18: 4.5rem;   /* habilita mt-18 / -mt-18 */
+  --spacing-54: 13.5rem;  /* habilita h-54 */
+}
+
+/* ================= */
+/* BASE DESIGN TOKENS */
+/* ================= */
+@layer base {
+  :root {
+    /* ========= NEUTRAL ========= */
+    --neutral-50:  #F9FAFB; /* = brand-surface */
+    --neutral-200: #dce1e8; /* divisores sutiles */
+    --neutral-500: #2C2C2C; /* = brand-text */
+    --neutral-800: #2B2E30;
+    --neutral-900: #191B1C;
+
+    /* ========= BRAND BLUE (Actualizado para BottomHeader) ========= */
+    --brand-blue-50:  #E3E6F8;
+    
+    /* Shell exterior (Azul grisáceo claro) - #9EC5E2 */
+    --brand-blue-200: #9EC5E2; 
+
+    --brand-blue-300: #5CB3E6;
+
+    /* Borde delineado (Cian/Azul claro) - #4EA5E6 */
+    --brand-blue-400: #4EA5E6; 
+
+    --brand-blue-500: #0179CC; /* Azul estándar */
+
+    /* Fondo principal enlaces (Azul Medio) - #0073C7 */
+    --brand-blue-600: #0073C7; 
+
+    /* Hover de enlaces (Azul un poco más oscuro) - #0060A6 */
+    --brand-blue-700: #0060A6; 
+
+    /* Fondo del Logo (Azul Profundo) - #004B87 */
+    --brand-blue-800: #004B87; 
+
+    --brand-blue-900: #000D56; /* Muy oscuro */
+
+    /* ========= BRAND ORANGE ========= */
+    --brand-orange-50:  #FEF1E5;
+    --brand-orange-300: #F7A45C;
+    
+    /* CTA Principal - #FF5500 */
+    --brand-orange-500: #FF5500; 
+    
+    /* CTA Hover - #E04B00 */
+    --brand-orange-600: #E04B00; 
+
+    --brand-orange-700: #C66522;
+    --brand-orange-900: #7C3A0E;
+
+    --surface-muted: #F9FAFB;
+
+    /* Filtros de iconografía */
+    --icon-orange-filter: invert(63%) sepia(57%) saturate(1263%) hue-rotate(350deg) brightness(97%) contrast(94%);
+    --icon-brand-filter:  brightness(0) saturate(100%) invert(55%) sepia(93%) saturate(3000%) hue-rotate(2deg) brightness(102%) contrast(102%);
+
+    /* Alias de marca */
+    --brand-surface: var(--neutral-50);
+    --brand-text:    var(--neutral-500);
+
+    /* Texto claro sobre fondos de color */
+    --text-on-colored: #F9FAFB;
+
+    /* Accesibilidad - Usamos el azul delineado para el focus */
+    --focus-ring: var(--brand-blue-400);
+
+    /* Gradientes / bordes */
+    --gradient-primary-from: var(--brand-blue-700);
+    --gradient-primary-to:   var(--brand-blue-500);
+    --border-on-colored: rgb(255 255 255 / 0.55);
+
+    /* Hero & Shapes */
+    --hero-aspect: 106/35;
+    --hero-clip-sm: url(#hero-clip-sm);
+    --hero-clip-md: url(#hero-clip-md);
+    --hero-notch-top-sm: 62%;
+    --hero-notch-left-sm: 76%;
+    --hero-notch-top-md: 79%;
+    --hero-notch-left-md: 76%;
+
+    /* Elevación */
+    --elevation-sm: 0 2px 10px rgb(0 0 0 / 0.06);
+
+    /* Fallbacks tipográficos */
+    --font-fallback-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", Ubuntu, Cantarell, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font-fallback-heading: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", Ubuntu, Cantarell, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  }
+
+  /* Asigna fuente a body */
+  body { --font-sans: var(--font-body, var(--font-fallback-sans)); }
+
+  /* Evita scroll horizontal */
+  html, body { overflow-x: clip; }
+}
+
+/* utilidad para colorear svg externos con el naranja de marca */
+.u-icon-brand { filter: var(--icon-brand-filter); }
+
+/* ================= */
+/* UTILITIES v4      */
+/* ================= */
+@layer utilities {
+  .font-heading { font-family: var(--font-heading); }
+
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-eyebrow);
+    font-family: var(--font-heading);
+    font-size: var(--text-eyebrow);
+    line-height: var(--leading-caption);
+  }
+
+  .text-muted { color: color-mix(in srgb, var(--brand-text), transparent 20%); }
+
+  .bg-gradient-primary {
+    background-image: linear-gradient(to bottom, var(--gradient-primary-from), var(--gradient-primary-to)) !important;
+    background-color: transparent !important;
+  }
+
+  .surface-gradient-primary { position: relative; isolation: isolate; }
+  .surface-gradient-primary::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: linear-gradient(to bottom, var(--gradient-primary-from), var(--gradient-primary-to));
+  }
+
+  .border-on-colored { border-color: var(--border-on-colored); }
+
+  /* Banda compartida Servicios + Marcas */
+  .bg-band-shared {
+    position: relative;
+    isolation: isolate;
+  }
+  .bg-band-shared::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    background:
+      radial-gradient(900px 420px at 15% 50%, color-mix(in srgb, #ffffff 8%, transparent), transparent 60%),
+      radial-gradient(900px 420px at 85% 15%, color-mix(in srgb, #ffffff 6%, transparent), transparent 60%),
+      linear-gradient(320deg, var(--band-from, var(--brand-blue-900)), var(--band-to, var(--brand-blue-700)));
+  }
+}

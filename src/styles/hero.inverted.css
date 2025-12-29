@@ -1,0 +1,78 @@
+:root{
+  --hero-min-h: 100dvh;
+  --hero-radius: 32px;
+  --hero-text: var(--text-on-colored, #fff);
+  --hero-muted: color-mix(in srgb, var(--hero-text), transparent 45%);
+  --pill-surface: var(--neutral-50, #fff);
+  --pill-text: var(--text, #0a0a0a);
+  --brand: var(--brand, #ff6a00);
+}
+
+/* Sección y container */
+.hero-section{ min-block-size: var(--hero-min-h); display:grid; align-items:stretch; padding:15px; }
+.hero-offset{ block-size:100%; padding-block:0; display:grid; align-items:stretch; }
+
+/* Contenedor video + notch (BASE DESKTOP) */
+.chonky-image{ position:relative; inline-size:100%; block-size:100%; border-radius:var(--hero-radius); overflow:hidden; }
+.hero-media{ position:absolute; inset:0; inline-size:100%; block-size:100%; object-fit:cover; }
+
+/* Esquinas invertidas (BASE DESKTOP) */
+.top-left{ position:absolute; left:0; top:0; width:288px; height:88px; background:var(--neutral-50); border-radius:0 0 32px 0; }
+.top-left::before{ content:""; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 1 20 20' fill='none'%3E%3Cpath d='M20.0001 0.500153H0.000108054C0.000108054 0.500153 2.26111e-06 0.500153 0.000108054 20.5001C0.0001139 9.5 9.5001 0.500153 20.0001 0.500153Z' fill='white'/%3E%3C/svg%3E"); width:32px; height:32px; position:absolute; bottom:-32px; left:0; }
+.top-left::after{ content:""; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 1 22 20' fill='none'%3E%3Cpath d='M20.0001 0.500153H0.000108054C0.000108054 0.500153 2.26111e-06 0.500153 0.000108054 20.5001C0.0001139 9.5 9.5001 0.500153 20.0001 0.500153Z' fill='white'/%3E%3C/svg%3E"); width:32px; height:32px; position:absolute; top:-1px; right:-32px; }
+
+.bottom-right{ position:absolute; right:0; bottom:0; width:420px; height:110px; background:var(--neutral-50); border-radius:32px 0 0 0; }
+.bottom-right::before{ content:""; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 1 20 20' fill='none'%3E%3Cpath d='M20.0001 0.500153H0.000108054C0.000108054 0.500153 2.26111e-06 0.500153 0.000108054 20.5001C0.0001139 9.5 9.5001 0.500153 20.0001 0.500153Z' fill='white'/%3E%3C/svg%3E"); width:32px; height:32px; position:absolute; top:-32px; right:0; transform:rotate(180deg); }
+.bottom-right::after{ content:""; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 1 20 20' fill='none'%3E%3Cpath d='M20.0001 0.500153H0.000108054C0.000108054 0.500153 2.26111e-06 0.500153 0.000108054 20.5001C0.0001139 9.5 9.5001 0.500153 20.0001 0.500153Z' fill='white'/%3E%3C/svg%3E"); width:32px; height:32px; position:absolute; bottom:0; left:-32px; transform:rotate(180deg); }
+
+/* Layout de contenido (BASE DESKTOP) */
+.hero-content{ position:relative; z-index:3; inset:0; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,0.9fr); gap:clamp(1rem,4vw,3rem); padding:clamp(1.25rem,4vw,2.5rem) clamp(1rem,4vw,2rem); block-size:100%; }
+.hero-left{ color:var(--hero-text); gap:clamp(0.75rem,2.2vw,1.25rem); display:grid; align-content:center; }
+
+.hero-title{ color:var(--hero-text); font-weight:800; letter-spacing:-0.01em; line-height:1.05; font-size:clamp(2.25rem,7vw,5rem); }
+.hero-copy{ color:var(--hero-muted); font-size:clamp(0.95rem,1.4vw,1.0625rem); line-height:1.6; max-inline-size:42ch; }
+
+.hero-right{ justify-items:start; }
+.hero-features{ display:grid; gap:clamp(1rem,2vw,1.25rem); color:var(--hero-text); }
+
+.hero-pill{ background:var(--pill-surface); color:var(--pill-text); border-radius:24px; }
+.hero-pill-badge{ background:var(--brand); color:var(--text-on-colored,#fff); }
+
+/* ======================================================
+   MOBILE + TABLET (< 1024px):
+   - forma simple (sin notch)
+   - NO features
+   - NO pill
+====================================================== */
+@media (max-width: 1023px){
+  /* forma simple */
+  .top-left,
+  .bottom-right{ display:none !important; }
+
+  .chonky-image{ border-radius:28px; }
+
+  /* ocultar features */
+  .hero-right,
+  .hero-features{ display:none !important; }
+
+  /* ocultar pill */
+  .hero-pill-wrap,
+  .hero-pill{ display:none !important; }
+}
+
+/* ======================================================
+   MOBILE ONLY: (<= 767px) -> overlay vertical más tipo ref
+====================================================== */
+@media (max-width: 767px){
+  .hero-dim{
+    background: linear-gradient(
+      180deg,
+      rgba(0,0,0,0.48),
+      rgba(0,0,0,0.28) 55%,
+      rgba(0,0,0,0.18)
+    ) !important;
+    backdrop-filter: blur(0.5px);
+  }
+
+  .hero-content{ grid-template-columns:1fr; }
+}

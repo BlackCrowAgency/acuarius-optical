@@ -1,0 +1,23 @@
+// vitest.config.mts
+import { defineConfig } from "vitest/config";
+import react from "@vitejs/plugin-react";
+import tsconfigPaths from "vite-tsconfig-paths";
+
+export default defineConfig({
+  plugins: [tsconfigPaths(), react()],
+  test: {
+    environment: "jsdom",
+    setupFiles: ["./vitest.setup.ts"],
+    css: true,
+    globals: true,
+    include: ["src/**/*.{test,spec}.ts?(x)"],
+    exclude: ["node_modules", ".next/**", "tests/e2e/**"],
+    deps: {
+      // Evita problemas ESM en pruebas con these packages
+      inline: ["three", "postprocessing"],
+    },
+  },
+  esbuild: {
+    jsx: "automatic",
+  },
+});

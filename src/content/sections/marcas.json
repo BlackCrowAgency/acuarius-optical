@@ -1,0 +1,14 @@
+{
+  "kind": "marcas",
+  "titleBefore": "Marcas que definen el Estándar mundial",
+  "titleAfter": "",
+  "description": "",
+  "logos": [
+    { "name": "Unicos",    "src": "/logos/marcas/Unicos.svg" },
+    { "name": "Visionix",  "src": "/logos/marcas/Visonix.svg" },
+    { "name": "Takagi",    "src": "/logos/marcas/Takagi.svg" },
+    { "name": "MediWorks", "src": "/logos/marcas/Mediworks.svg" },
+    { "name": "Tomey",     "src": "/logos/marcas/Tomey.svg" },
+    { "name": "Huvitz",    "src": "/logos/marcas/Huvitz.svg" }
+  ]
+}

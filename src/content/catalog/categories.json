@@ -1,0 +1,14 @@
+[
+  {
+    "key": "equipos-oftalmologicos",
+    "title": "Equipos Oftalmológicos",
+    "description": "Tecnología y precisión para diagnóstico y atención clínica.",
+    "heroImage": "/images/Equipos_Oftalmologicos.png"
+  },
+  {
+    "key": "biseladoras",
+    "title": "Biseladoras",
+    "description": "Soluciones para laboratorio y producción de lentes con alta eficiencia.",
+    "heroImage": "/images/Biceladoras.png"
+  }
+]

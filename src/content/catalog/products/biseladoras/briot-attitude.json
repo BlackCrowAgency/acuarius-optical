@@ -1,0 +1,20 @@
+{
+  "slug": "briot-attitude",
+  "name": "Briot Attitude",
+  "brand": "Briot",
+  "shortDescription": "Biseladora compacta y versátil para laboratorios modernos.",
+  "description": "La Briot Attitude combina precisión, confiabilidad y un diseño compacto ideal para laboratorios que buscan eficiencia operativa sin sacrificar calidad de acabado.",
+  "coverImage": "/catalog/biseladoras/briot-attitude/cover.png",
+  "heroImage": "/catalog/biseladoras/briot-attitude/hero.png",
+  "gallery": [
+    "/catalog/biseladoras/briot-attitude/g-01.webp",
+    "/catalog/biseladoras/briot-attitude/g-02.webp",
+    "/catalog/biseladoras/briot-attitude/g-03.webp"
+  ],
+  "specs": [
+    { "label": "Tipo", "value": "Biseladora automática" },
+    { "label": "Uso recomendado", "value": "Laboratorio óptico" },
+    { "label": "Formato", "value": "Compacto" },
+    { "label": "Precisión", "value": "Alta" }
+  ]
+}

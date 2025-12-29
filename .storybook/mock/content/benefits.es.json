@@ -1,0 +1,23 @@
+{
+    "title": "¿Por qué esta plantilla?",
+    "intro": "Estructura profesional, escalable y lista para producción.",
+    "items": [
+      {
+        "icon": "/icons/window.svg",
+        "title": "App Router moderno",
+        "description": "Rutas por segmentos, layouts anidados y streaming de React."
+      },
+      {
+        "icon": "/icons/globe.svg",
+        "title": "i18n por rutas",
+        "description": "Locales en el árbol de archivos, sin complicaciones."
+      },
+      {
+        "icon": "/icons/file.svg",
+        "title": "Design System",
+        "description": "Componentes base unificados con Tailwind y tokens."
+      }
+    ],
+    "variant": "cards"
+  }
+  

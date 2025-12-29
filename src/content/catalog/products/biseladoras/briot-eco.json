@@ -1,0 +1,20 @@
+{
+  "slug": "briot-eco",
+  "name": "Briot Eco",
+  "brand": "Briot",
+  "shortDescription": "Biseladora eficiente y accesible para laboratorios pequeños.",
+  "description": "La Briot Eco es una solución rentable que mantiene estándares profesionales de biselado, ideal para laboratorios en crecimiento.",
+  "coverImage": "/catalog/biseladoras/briot-eco/cover.png",
+  "heroImage": "/catalog/biseladoras/briot-eco/hero.png",
+  "gallery": [
+    "/catalog/biseladoras/briot-eco/g-01.webp",
+    "/catalog/biseladoras/briot-eco/g-02.webp",
+    "/catalog/biseladoras/briot-eco/g-03.webp"
+  ],
+  "specs": [
+    { "label": "Tipo", "value": "Biseladora automática" },
+    { "label": "Segmento", "value": "Laboratorios pequeños" },
+    { "label": "Consumo", "value": "Optimizado" },
+    { "label": "Relación costo-beneficio", "value": "Alta" }
+  ]
+}

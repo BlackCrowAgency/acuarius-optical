@@ -1,0 +1,20 @@
+{
+  "slug": "briot-axis",
+  "name": "Briot Axis",
+  "brand": "Briot",
+  "shortDescription": "Biseladora de alto rendimiento para producción continua.",
+  "description": "Diseñada para laboratorios con alta demanda, la Briot Axis ofrece velocidad, exactitud y consistencia en procesos de biselado exigentes.",
+  "coverImage": "/catalog/biseladoras/briot-axis/cover.png",
+  "heroImage": "/catalog/biseladoras/briot-axis/hero.png",
+  "gallery": [
+    "/catalog/biseladoras/briot-axis/g-01.webp",
+    "/catalog/biseladoras/briot-axis/g-02.webp",
+    "/catalog/biseladoras/briot-axis/g-03.webp"
+  ],
+  "specs": [
+    { "label": "Tipo", "value": "Biseladora automática" },
+    { "label": "Producción", "value": "Alta" },
+    { "label": "Operación", "value": "Continua" },
+    { "label": "Precisión", "value": "Muy alta" }
+  ]
+}

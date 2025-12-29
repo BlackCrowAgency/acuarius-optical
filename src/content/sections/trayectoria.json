@@ -1,0 +1,42 @@
+{
+  "eyebrow": {
+    "logo": "/logos/Logovol1.svg",
+    "lines": [
+      "DISTRIBUIDORES EXCLUSIVOS DE ALTA TECNOLOGÍA",
+      "A NIVEL INTERNACIONAL"
+    ]
+  },
+  "titleBefore": "Innovación, precisión y confianza —",
+  "titleHighlight": "al servicio de los profesionales de la visión.",
+  "titleAfter": "",
+  "cards": [
+    {
+      "image": "/images/ImagenSeccion.png",
+      "alt": "Equipo diagnóstico oftálmico en uso",
+      "statValue": "+20",
+      "statLabel": "Años de experiencia internacional",
+      "footnote": "Brindando soporte técnico y asesoría especializada a más de siete países aliados."
+    },
+    {
+      "image": "/images/ImagenSecciondos.png",
+      "alt": "Medición con lámpara de hendidura",
+      "statValue": "+7",
+      "statLabel": "Aliados internacionales",
+      "footnote": "Red de marcas y distribuidores certificados para asegurar stock y garantías."
+    },
+    {
+      "image": "/images/ImagenSecciontres.png",
+      "alt": "Médico analizando fondo de ojo en monitor",
+      "statValue": "+150",
+      "statLabel": "Equipos instalados",
+      "footnote": "Implementaciones clínicas y retail con capacitación operativa integral."
+    },
+    {
+      "image": "/images/ImagenSeccioncuatro.png",
+      "alt": "Asesoría técnica con clientes",
+      "statValue": "+5",
+      "statLabel": "Certificaciones de calidad",
+      "footnote": "Procesos, calibración y mantenimiento alineados a estándares internacionales."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "kind": "clientes",
+  "title": "Trusted by leading teams",
+  "subtitle": "Socios que confían en nuestra visión",
+  "logos": [
+    { "name": "Aviva",      "src": "/logos/clinicas/Aviva.png" },
+    { "name": "auna",       "src": "/logos/clinicas/auna.png" },
+    { "name": "EsSalud",    "src": "/logos/clinicas/EsSalud.png" },
+    { "name": "Oftalmosur", "src": "/logos/clinicas/Oftalmosur.png" },
+    { "name": "Mácula D&T", "src": "/logos/clinicas/Macula.png" }
+  ]
+}

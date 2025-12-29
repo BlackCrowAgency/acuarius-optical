@@ -1,0 +1,302 @@
+/* src/styles/catalog-category.css */
+
+/* =========================
+   TOP SPACING
+   ========================= */
+.catalogCategoryTop {
+  padding-top: 148px;
+}
+
+@media (min-width: 1024px) {
+  .catalogCategoryTop {
+    padding-top: 118px;
+  }
+}
+
+@media (max-width: 760px) {
+  .catalogCategoryTop {
+    padding-top: 112px;
+  }
+}
+
+/* =========================
+   HERO
+   ========================= */
+.catalogHero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 32px;
+  background: var(--neutral-100);
+}
+
+.catalogHero__media {
+  position: relative;
+  height: 600px;
+}
+
+.catalogHero__img {
+  object-fit: cover;
+}
+
+/* =========================
+   BREADCRUMB TAG
+   ========================= */
+.catalogHero__tag {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 14px;
+  border-radius: 999px;
+
+  color: var(--text-on-colored);
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  font-weight: 500;
+  line-height: 1;
+  z-index: 2;
+}
+
+.catalogHero__tagLink {
+  color: inherit;
+  text-decoration: none;
+  outline: none;
+}
+
+.catalogHero__tagLink:focus-visible {
+  box-shadow: 0 0 0 3px var(--focus-ring);
+  border-radius: 999px;
+}
+
+.catalogHero__tagLink:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.catalogHero__tagSep {
+  opacity: 0.9;
+}
+
+.catalogHero__tagCurrent {
+  opacity: 0.95;
+}
+
+/* =========================
+   PANEL + NOTCH (NO TOCAR)
+   ========================= */
+.catalogHero__panel {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  background: #f9fafb;
+  border-top-right-radius: 32px;
+
+  padding: 18px;
+  display: flex;
+  gap: 18px;
+  align-items: stretch;
+}
+
+.catalogHero__panel::before,
+.catalogHero__panel::after {
+  content: "";
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  background: transparent;
+}
+
+.catalogHero__panel::before {
+  left: 0;
+  bottom: 100%;
+  box-shadow: -28px 28px #fff;
+}
+
+.catalogHero__panel::after {
+  left: 100%;
+  bottom: 0;
+  box-shadow: -28px 28px #fff;
+}
+
+/* =========================
+   CTA BASE
+   ========================= */
+.catalogCta {
+  border-radius: 18px;
+  padding: 26px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+
+  min-height: 110px;
+  width: 500px;
+
+  text-decoration: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.catalogCta:focus-visible {
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+.catalogCta__label {
+  font-weight: 500;
+  line-height: 1.12;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+}
+
+.catalogCta__iconWrap {
+  width: 58px;
+  height: 58px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  transition: transform 180ms ease;
+}
+
+/* =========================
+   CTA VARIANTS (structure)
+   ========================= */
+.catalogCta--primary {
+  color: var(--text-on-colored);
+}
+
+.catalogCta--primary .catalogCta__iconWrap {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--brand-orange-500);
+}
+
+.catalogCta--secondary {
+  color: var(--neutral-900);
+}
+
+.catalogCta--secondary .catalogCta__iconWrap {
+  background: rgba(255, 255, 255, 0.92);
+  color: rgba(17, 24, 39, 0.82);
+}
+
+.catalogCta--primary:hover .catalogCta__iconWrap {
+  transform: translate(2px, -2px);
+}
+
+.catalogCta--secondary:hover .catalogCta__iconWrap {
+  transform: translateY(2px);
+}
+
+/* =========================
+   CTA TONES (blue | orange)
+   Applies to primary + secondary
+   ========================= */
+.catalogCta--toneBlue.catalogCta--primary {
+  background: var(--brand-blue-500);
+  box-shadow: 0 18px 40px rgba(11, 116, 199, 0.22);
+}
+
+.catalogCta--toneBlue.catalogCta--secondary {
+  background: var(--brand-blue-50);
+}
+
+.catalogCta--toneOrange.catalogCta--primary {
+  background: var(--brand-orange-500);
+  box-shadow: 0 18px 40px rgba(245, 104, 0, 0.22);
+}
+
+.catalogCta--toneOrange.catalogCta--secondary {
+  background: var(--brand-orange-50);
+}
+
+.catalogCta--toneOrange.catalogCta--secondary .catalogCta__iconWrap {
+  color: var(--brand-orange-700);
+}
+
+/* ✅ FIX: en tono azul, la flecha del CTA primary debe ser azul (no naranja) */
+.catalogCta--toneBlue.catalogCta--primary .catalogCta__iconWrap {
+  color: var(--brand-blue-500);
+}
+
+/* =========================
+   BRANDS
+   ========================= */
+.catalogBrandsRow {
+  margin-top: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 44px;
+}
+
+.catalogBrandLogo {
+  position: relative;
+  width: 200px;
+  height: 150px;
+  opacity: 0.95;
+}
+
+.catalogBrandLogo__img {
+  object-fit: contain;
+  filter: none;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 760px) {
+  .catalogHero__media {
+    height: 360px;
+  }
+
+  .catalogHero__panel {
+    position: static;
+    border-top-right-radius: 24px;
+    border-bottom-left-radius: 24px;
+    margin-top: -18px;
+    width: calc(100% - 28px);
+    margin-left: 14px;
+    margin-right: 14px;
+    flex-direction: column;
+  }
+
+  .catalogHero__panel::before,
+  .catalogHero__panel::after {
+    display: none;
+  }
+
+  .catalogCta {
+    width: 100%;
+    min-height: 92px;
+    padding: 18px;
+  }
+
+  .catalogCta__label {
+    font-size: 18px;
+  }
+
+  .catalogCta__iconWrap {
+    width: 46px;
+    height: 46px;
+  }
+
+  .catalogBrandsRow {
+    margin-top: 40px;
+    gap: 28px;
+  }
+
+  .catalogBrandLogo {
+    width: 120px;
+    height: 38px;
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "title": "Calidad clínica que perdura.\nSoporte experto en cada ciudad.",
+  "subtitle": "500+ instalaciones, 200+ puntos de servicio.",
+  "items": [
+    {
+      "icon": "/logos/Logovol1.svg",
+      "title": "Sin citas. Sin esperas.",
+      "description": "Evaluaciones rápidas y datos confiables para decidir con seguridad clínica."
+    },
+    {
+      "icon": "/icons/clinicas.svg",
+      "title": "Integrado a clínicas reales",
+      "description": "Flujos probados en ambiente clínico para una adopción simple y efectiva."
+    },
+    {
+      "icon": "/icons/paises.svg",
+      "title": "Cobertura internacional",
+      "description": "Presencia y distribución en varios países para stock, repuestos y garantías."
+    },
+    {
+      "icon": "/icons/soporte.svg",
+      "title": "Soporte especializado",
+      "description": "Acompañamiento técnico, instalación y capacitación por expertos oftálmicos."
+    }
+  ]
+}

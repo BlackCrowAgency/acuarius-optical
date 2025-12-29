@@ -1,0 +1,13 @@
+{
+    "title": "Construye landing pages robustas en minutos",
+    "subtitle": "Plantilla base avanzada con Next.js 15, App Router y Tailwind.",
+    "primaryCta": { "label": "Empezar", "href": "#get-started" },
+    "secondaryCta": { "label": "Ver componentes", "href": "#components" },
+    "media": {
+      "type": "illustration",
+      "src": "/og/home-es.png",
+      "alt": "Ilustración de desarrollo frontend"
+    },
+    "variant": "withImage"
+  }
+  
